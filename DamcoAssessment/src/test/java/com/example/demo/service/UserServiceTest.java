@@ -25,10 +25,10 @@ public class UserServiceTest {
 
 		List<User> listUser = new ArrayList<>();
 
-		listUser.add(new User("1", "Jitendra", "Kumar", new Date(), "Title1"));
-		listUser.add(new User("2", "Aman", "Kumar", new Date(), "Title2"));
-		listUser.add(new User("3", "Amit", "Kumar", new Date(), "Title3"));
-		listUser.add(new User("4", "Suresh", "Kumar", new Date(), "Title4"));
+		listUser.add(new User("1", "Jitendra", "Kumar", new Date(), "Title1", 1));
+		listUser.add(new User("2", "Aman", "Kumar", new Date(), "Title2", 1));
+		listUser.add(new User("3", "Amit", "Kumar", new Date(), "Title3", 1));
+		listUser.add(new User("4", "Suresh", "Kumar", new Date(), "Title4", 1));
 
 		Mockito.when(userService.readUser()).thenReturn(listUser);
 
@@ -39,8 +39,8 @@ public class UserServiceTest {
 
 	@Test
 	public void testCreateUser() throws Exception {
-		User user = new User("1", "Jitendra", "Kumar", new Date(), "title1");
-		User savedUser = new User("1", "Jitendra", "Kumar", new Date(), "title1");
+		User user = new User("1", "Jitendra", "Kumar", new Date(), "title1", 1);
+		User savedUser = new User("1", "Jitendra", "Kumar", new Date(), "title1", 1);
 
 		Mockito.when(userService.createUser(user)).thenReturn(savedUser);
 
@@ -51,8 +51,8 @@ public class UserServiceTest {
 
 	@Test
 	public void testUpdateUser() throws Exception {
-		User existingUser = new User("1", "Jitendra", "Kumar", new Date(), "title1");
-		User savedUser = new User("1", "Jackson", "Kumar", new Date(), "title1");
+		User existingUser = new User("1", "Jitendra", "Kumar", new Date(), "title1",1);
+		User savedUser = new User("1", "Jackson", "Kumar", new Date(), "title1", 1);
 
 		Mockito.when(userService.createUser(existingUser)).thenReturn(savedUser);
 

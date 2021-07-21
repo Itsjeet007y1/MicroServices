@@ -35,15 +35,20 @@ public class User {
 	@NotNull
 	@NotEmpty
 	private String title;
+	
+	private int addressId;
 
 	// Parameterized constructor
-	public User(String userId, String firstName, String sirName, Date dob, String title) {
+	public User(@NotNull @NotEmpty @NotBlank String userId, @NotNull @NotEmpty String firstName,
+			@NotNull @NotEmpty String sirName, Date dob, @NotNull @NotEmpty String title,
+		 int addressId) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
 		this.sirName = sirName;
 		this.dob = dob;
 		this.title = title;
+		this.addressId = addressId;
 	}
 
 	// Setters and Getters
@@ -87,6 +92,15 @@ public class User {
 		this.title = title;
 	}
 
+	
+	public int getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+	
 	// toString method to debug and test the data
 	@Override
 	public String toString() {
@@ -101,8 +115,10 @@ public class User {
 		builder.append(dob);
 		builder.append(", title=");
 		builder.append(title);
+		builder.append(", addressId=");
+		builder.append(addressId);
 		builder.append("]");
 		return builder.toString();
 	}
-
+	
 }

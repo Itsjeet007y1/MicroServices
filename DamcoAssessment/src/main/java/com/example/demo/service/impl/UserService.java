@@ -38,4 +38,10 @@ public class UserService implements IUserService {
 	public boolean isUserExist(String id) {
 		return userRepository.existsById(id);
 	}
+
+	@Override
+	public User getUserById(String userId) {
+		return userRepository.findById(userId).get();
+	}
+	
 }

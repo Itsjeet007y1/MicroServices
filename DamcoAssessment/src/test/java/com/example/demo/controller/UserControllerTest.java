@@ -21,6 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.model.ResponseDefObject;
 import com.example.demo.model.User;
@@ -37,6 +38,9 @@ public class UserControllerTest {
 
 	@Autowired
 	private ObjectMapper objectMapper;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@MockBean
 	private UserService userService;
@@ -49,10 +53,10 @@ public class UserControllerTest {
 
 		List<User> listUser = new ArrayList<>();
 
-		listUser.add(new User("1", "Jitendra", "Kumar", new Date(), "Title1"));
-		listUser.add(new User("2", "Aman", "Kumar", new Date(), "Title2"));
-		listUser.add(new User("3", "Amit", "Kumar", new Date(), "Title3"));
-		listUser.add(new User("4", "Suresh", "Kumar", new Date(), "Title4"));
+		listUser.add(new User("1", "Jitendra", "Kumar", new Date(), "Title1", 1));
+		listUser.add(new User("2", "Aman", "Kumar", new Date(), "Title2", 1));
+		listUser.add(new User("3", "Amit", "Kumar", new Date(), "Title3", 1));
+		listUser.add(new User("4", "Suresh", "Kumar", new Date(), "Title4", 1));
 
 		Mockito.when(userService.readUser()).thenReturn(listUser);
 
@@ -80,8 +84,8 @@ public class UserControllerTest {
 
 	@Test
 	public void testCreateUser() throws Exception {
-		User user = new User("1", "Jitendra", "Kumar", new Date(), "title1");
-		User savedUser = new User("1", "Jitendra", "Kumar", new Date(), "title1");
+		User user = new User("1", "Jitendra", "Kumar", new Date(), "title1", 1);
+		User savedUser = new User("1", "Jitendra", "Kumar", new Date(), "title1", 1);
 
 		Mockito.when(userService.createUser(user)).thenReturn(savedUser);
 
@@ -93,8 +97,8 @@ public class UserControllerTest {
 
 	@Test
 	public void testUpdateUser() throws Exception {
-		User existingUser = new User("1", "Jitendra", "Kumar", new Date(), "title1");
-		User savedUser = new User("1", "Jackson", "Kumar", new Date(), "title1");
+		User existingUser = new User("1", "Jitendra", "Kumar", new Date(), "title1", 1);
+		User savedUser = new User("1", "Jackson", "Kumar", new Date(), "title1", 1);
 
 		Mockito.when(userService.createUser(existingUser)).thenReturn(savedUser);
 
