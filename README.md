@@ -19,7 +19,7 @@ Following points are taken care while creating these microservice:
 Following microservices are created for the assessment:
 1. DamcoAssessment: Main application where Rest end points are defined.
 2. eureka-discovery-server: To configure eureka-server to view and monitor microservices
-3. api-gateway: To Channell and delegate requests from one micro service to another micro service.
+3. api-gateway: To Channel and delegate requests from one micro service to another micro service.
 
 To Run the application please follow following steps:
 1. Run eureak-discovery-server microservice (port: 8761)----> to open eureka server on browser hit: http://localhost:8761
