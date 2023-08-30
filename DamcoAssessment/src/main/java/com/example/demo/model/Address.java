@@ -2,7 +2,7 @@ package com.example.demo.model;
 
 public class Address {
 
-	private String addressId;
+	private int addressId;
 	private String city;
 	private String state;
 	private String pinCode;
@@ -10,17 +10,17 @@ public class Address {
 	public Address() {
 		super();
 	}
-	public Address(String addressId, String city, String state, String pinCode) {
+	public Address(int addressId, String city, String state, String pinCode) {
 		super();
 		this.addressId = addressId;
 		this.city = city;
 		this.state = state;
 		this.pinCode = pinCode;
 	}
-	public String getAddressId() {
+	public int getAddressId() {
 		return addressId;
 	}
-	public void setAddressId(String addressId) {
+	public void setAddressId(int addressId) {
 		this.addressId = addressId;
 	}
 	public String getCity() {

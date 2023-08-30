@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.builder.UserResponseBuilder;
+import com.example.demo.config.kafka.KafkaProducer;
 import com.example.demo.exception.DuplicateUserFoundException;
 import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.model.Address;
@@ -38,6 +38,9 @@ public class UserController {
 	
 	@Autowired
 	RestTemplate restTemplate; // Auto wiring Rest template object inside user controller
+	
+	@Autowired
+	private KafkaProducer kafkaProducer;
 
 	/*
 	 * Create user end point to save a user data into database if user does not
@@ -48,6 +51,7 @@ public class UserController {
 		logger.info("saveuser end point is called.");
 		if (!userService.isUserExist(user.getUserId())) {
 			User savedUser = userService.createUser(user);
+			kafkaProducer.sendMessage(savedUser.toString());
 			return new ResponseEntity<ResponseDefObject<User>>(
 					new ResponseDefObject<User>(HttpStatus.CREATED.value(), Util.SUCCESS, savedUser),
 					HttpStatus.ACCEPTED);
