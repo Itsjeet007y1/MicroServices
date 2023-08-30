@@ -6,17 +6,16 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
-@SpringBootApplication	// To enable auto configurations and to scan all the classes available in child directory
+@SpringBootApplication // To enable auto configurations and to scan all the classes available in child
+						// directory
 /*
- * Here we have configured SwaggerDocumentation which can be accessed in localhost by using below URL:
- * http://localhost:8181/swagger-ui.html
- * or
+ * Here we have configured SwaggerDocumentation which can be accessed in
+ * localhost by using below URL: http://localhost:8181/swagger-ui.html or
  * http://localhost:9393/user-service/swagger-ui.html (through API gateway)
  */
 @EnableSwagger2
 /*
- * We are registering this DamcoAssessment micro service in configured
+ * We are registering this User micro service in configured
  * eureka-discovery-server micro service in which we can see our all the
  * registered micro services that can be accessed in localhost by using below
  * URL: http://localhost:8761/
