@@ -22,10 +22,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * URL: http://localhost:8761/
  */
 @EnableEurekaClient
-public class DamcoAssessmentApplication {
+public class UserApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DamcoAssessmentApplication.class, args);
+		SpringApplication.run(UserApplication.class, args);
 	}
 
 }
