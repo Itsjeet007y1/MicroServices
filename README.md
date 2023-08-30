@@ -4,7 +4,7 @@ Damco Assessment CRUD, Junit, mockito, Eureka, and Zuul proxy
 This application is created using Java, Spring Boot as a micro service and used to perform CRUD operation on USER entity.
 Following points are taken care while creating these microservice: 
 1. This microservice is developed using in memory mongodb.
-2. Once the service is up and running we can use MongoDb Compass to see our in memory database: => http://localhost:27017
+2. Once the service is up and running we can use MongoDb Compass to see our in memory database: => http://localhost:27017 and http://localhost:27016
 3. Rest end points are created for CRUD operation.
 4. Spring boot Junit test cases are written for CRUD operation.
 5. Application's build tool is maven.
