@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.builder.UserResponseBuilder;
+import com.example.demo.config.kafka.JsonKafkaProducer;
 import com.example.demo.config.kafka.KafkaProducer;
 import com.example.demo.exception.DuplicateUserFoundException;
 import com.example.demo.exception.UserNotFoundException;
@@ -41,6 +42,9 @@ public class UserController {
 	
 	@Autowired
 	private KafkaProducer kafkaProducer;
+	
+	@Autowired
+	private JsonKafkaProducer jsonKafkaProducer;
 
 	/*
 	 * Create user end point to save a user data into database if user does not
@@ -68,6 +72,8 @@ public class UserController {
 	public ResponseEntity<ResponseDefObject<User>> updateUser(@RequestBody User user) {
 		logger.info("updateuser end point is called.");
 		if (userService.isUserExist(user.getUserId())) {
+			logger.info(String.format("Json message sent: %s", user));
+			jsonKafkaProducer.sendJsonMessage(user);
 			return new ResponseEntity<ResponseDefObject<User>>(
 					new ResponseDefObject<User>(HttpStatus.CREATED.value(), Util.SUCCESS, userService.createUser(user)),
 					HttpStatus.ACCEPTED);

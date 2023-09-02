@@ -38,6 +38,9 @@ public class User {
 	
 	private int addressId;
 
+	public User() {
+	}
+
 	// Parameterized constructor
 	public User(@NotNull @NotEmpty @NotBlank String userId, @NotNull @NotEmpty String firstName,
 			@NotNull @NotEmpty String sirName, Date dob, @NotNull @NotEmpty String title,
