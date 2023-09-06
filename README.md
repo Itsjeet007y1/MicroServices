@@ -1,5 +1,5 @@
-# DamcoAssessment
-Damco Assessment CRUD, Junit, mockito, Eureka, and Zuul proxy
+# MicroServicesWithServiceRegistryAndApiGateway
+User's CRUD, Junit, mockito, Eureka, and Zuul proxy
 
 This application is created using Java, Spring Boot as a micro service and used to perform CRUD operation on USER entity.
 Following points are taken care while creating these microservice: 
@@ -17,14 +17,14 @@ Following points are taken care while creating these microservice:
   http://localhost:8181/swagger-ui.html
 
 Following microservices are created for the assessment:
-1. DamcoAssessment: Main application where Rest end points are defined.
+1. user-service: Main application where Rest end points are defined.
 2. eureka-discovery-server: To configure eureka-server to view and monitor microservices
 3. api-gateway: To Channel and delegate requests from one micro service to another micro service.
 
 To Run the application please follow following steps:
 1. Run eureak-discovery-server microservice (port: 8761)----> to open eureka server on browser hit: http://localhost:8761
 2. Run api-gateway microservice(port: 9393)
-3. Run DamcoAssessment microservice(port: 8181)
+3. Run user-service microservice(port: 8181)
 
 End points without api-gateway:
 1. http://localhost:8181/createuser (this end point is used to save as well as for update)
